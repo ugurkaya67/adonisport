@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: adonisport-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DB_NAME}
+    ports:
+      - "5433:5432"
+    volumes:
+      - adonisport_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  adonisport_postgres_data:
