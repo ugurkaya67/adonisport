@@ -10,8 +10,11 @@
 import { middleware } from '#start/kernel'
 import { controllers } from '#generated/controllers'
 import router from '@adonisjs/core/services/router'
+import ProductsController from '#controllers/products_controller'
 
 router.on('/').renderInertia('home', {}).as('home')
+
+router.get('/products', [ProductsController, 'index'])
 
 router
   .group(() => {

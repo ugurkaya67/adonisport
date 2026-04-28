@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3'
+
+defineProps({
+  products: Array
+})
 </script>
 
 <template>
