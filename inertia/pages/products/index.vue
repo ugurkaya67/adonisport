@@ -33,5 +33,6 @@ defineProps<{
         </p>
       </article>
     </div>
+    <h1 class="text-5xl text-red-500">TAILWIND OK</h1>
   </div>
 </template>
