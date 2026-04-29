@@ -3,9 +3,6 @@ import { Head } from '@inertiajs/vue3'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 
-defineProps({
-  products: Array
-})
 </script>
 
 <template>

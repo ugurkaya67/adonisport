@@ -11,7 +11,7 @@ const page = usePage()
 
       <div class="flex-1">
         <h1 class="text-xl font-bold">
-          AdoniSport
+          <Link route="home">AdoniSport</Link>
         </h1>
       </div>
 
