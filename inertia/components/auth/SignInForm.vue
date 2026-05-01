@@ -22,18 +22,8 @@ const page = usePage()
       </nav>
 
       <div class="flex flex-1 justify-end gap-6 text-sm">
-        <template v-if="page.props.user">
-          <Form route="logout">
-            <button type="submit" class="hover:text-gray-300">
-              Logout
-            </button>
-          </Form>
-        </template>
-        <template v-else>
-          <Link route="login" class="hover:text-gray-300">
-            Login
-          </Link>
-        </template>
+        <a href="/login" class="hover:text-gray-300">Login</a>
+        <a href="/signup" class="hover:text-gray-300">Signup</a>
       </div>
 
     </div>

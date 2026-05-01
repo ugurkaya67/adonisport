@@ -18,11 +18,11 @@ const routes = {
     tokens: [{"old":"/products","type":0,"val":"products","end":""}],
     types: placeholder as Registry['products.index']['types'],
   },
-  'new_account.create': {
+  'signup': {
     methods: ["GET","HEAD"],
     pattern: '/signup',
     tokens: [{"old":"/signup","type":0,"val":"signup","end":""}],
-    types: placeholder as Registry['new_account.create']['types'],
+    types: placeholder as Registry['signup']['types'],
   },
   'new_account.store': {
     methods: ["POST"],
@@ -30,11 +30,11 @@ const routes = {
     tokens: [{"old":"/signup","type":0,"val":"signup","end":""}],
     types: placeholder as Registry['new_account.store']['types'],
   },
-  'session.create': {
+  'login': {
     methods: ["GET","HEAD"],
     pattern: '/login',
     tokens: [{"old":"/login","type":0,"val":"login","end":""}],
-    types: placeholder as Registry['session.create']['types'],
+    types: placeholder as Registry['login']['types'],
   },
   'session.store': {
     methods: ["POST"],
@@ -42,11 +42,17 @@ const routes = {
     tokens: [{"old":"/login","type":0,"val":"login","end":""}],
     types: placeholder as Registry['session.store']['types'],
   },
-  'session.destroy': {
+  'test': {
+    methods: ["GET","HEAD"],
+    pattern: '/test',
+    tokens: [{"old":"/test","type":0,"val":"test","end":""}],
+    types: placeholder as Registry['test']['types'],
+  },
+  'logout': {
     methods: ["POST"],
     pattern: '/logout',
     tokens: [{"old":"/logout","type":0,"val":"logout","end":""}],
-    types: placeholder as Registry['session.destroy']['types'],
+    types: placeholder as Registry['logout']['types'],
   },
 } as const satisfies Record<string, AdonisEndpoint>
 

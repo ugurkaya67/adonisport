@@ -31,7 +31,7 @@ export interface Registry {
       errorResponse: unknown
     }
   }
-  'new_account.create': {
+  'signup': {
     methods: ["GET","HEAD"]
     pattern: '/signup'
     types: {
@@ -55,7 +55,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/new_account_controller').default['store']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
-  'session.create': {
+  'login': {
     methods: ["GET","HEAD"]
     pattern: '/login'
     types: {
@@ -79,7 +79,19 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/session_controller').default['store']>>>
     }
   }
-  'session.destroy': {
+  'test': {
+    methods: ["GET","HEAD"]
+    pattern: '/test'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
+  'logout': {
     methods: ["POST"]
     pattern: '/logout'
     types: {

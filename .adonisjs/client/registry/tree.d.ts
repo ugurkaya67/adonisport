@@ -6,13 +6,14 @@ export interface ApiDefinition {
   products: {
     index: typeof routes['products.index']
   }
+  signup: typeof routes['signup']
   newAccount: {
-    create: typeof routes['new_account.create']
     store: typeof routes['new_account.store']
   }
+  login: typeof routes['login']
   session: {
-    create: typeof routes['session.create']
     store: typeof routes['session.store']
-    destroy: typeof routes['session.destroy']
   }
+  test: typeof routes['test']
+  logout: typeof routes['logout']
 }
