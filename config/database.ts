@@ -6,27 +6,43 @@ const dbConfig = defineConfig({
   /**
    * Default connection used for all queries.
    */
-  connection: 'pg',
+  connection: env.get('DB_CONNECTION'),
 
   connections: {
     /**
      * SQLite connection (default).
      */
-    pg: {
-      client: 'pg',
+
+    sqlite: {
+      client: 'better-sqlite3',
+
       connection: {
-        host: env.get('PG_HOST'),
-        port: Number(env.get('PG_PORT')),
-        user: env.get('PG_USER'),
-        password: env.get('PG_PASSWORD'),
-        database: env.get('PG_DB_NAME'),
+        filename: app.tmpPath('db.sqlite3'),
       },
+
+      useNullAsDefault: true,
+
       migrations: {
         naturalSort: true,
         paths: ['database/migrations'],
       },
-    debug: app.inDev,
     },
+
+    // pg: {
+    //   client: 'pg',
+    //   connection: {
+    //     host: env.get('PG_HOST'),
+    //     port: Number(env.get('PG_PORT')),
+    //     user: env.get('PG_USER'),
+    //     password: env.get('PG_PASSWORD'),
+    //     database: env.get('PG_DB_NAME'),
+    //   },
+    //   migrations: {
+    //     naturalSort: true,
+    //     paths: ['database/migrations'],
+    //   },
+    // debug: app.inDev,
+    // },
   },
 })
 

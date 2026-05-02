@@ -14,6 +14,5 @@ export interface ApiDefinition {
   session: {
     store: typeof routes['session.store']
   }
-  test: typeof routes['test']
   logout: typeof routes['logout']
 }

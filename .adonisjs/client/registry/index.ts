@@ -42,12 +42,6 @@ const routes = {
     tokens: [{"old":"/login","type":0,"val":"login","end":""}],
     types: placeholder as Registry['session.store']['types'],
   },
-  'test': {
-    methods: ["GET","HEAD"],
-    pattern: '/test',
-    tokens: [{"old":"/test","type":0,"val":"test","end":""}],
-    types: placeholder as Registry['test']['types'],
-  },
   'logout': {
     methods: ["POST"],
     pattern: '/logout',

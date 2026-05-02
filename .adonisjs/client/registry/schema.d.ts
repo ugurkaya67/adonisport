@@ -79,18 +79,6 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/session_controller').default['store']>>>
     }
   }
-  'test': {
-    methods: ["GET","HEAD"]
-    pattern: '/test'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: unknown
-      errorResponse: unknown
-    }
-  }
   'logout': {
     methods: ["POST"]
     pattern: '/logout'

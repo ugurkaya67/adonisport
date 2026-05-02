@@ -9,6 +9,24 @@ export default class ProductVariant extends BaseModel {
   @column()
   declare productId: number
 
+  @column()
+  declare sku: string
+
+  @column()
+  declare size: string | null
+
+  @column()
+  declare color: string | null
+
+  @column()
+  declare price: number
+
+  @column()
+  declare stock: number
+
+  @column()
+  declare image: string | null
+
   @belongsTo(() => Product)
   declare product: BelongsTo<typeof Product>
 }

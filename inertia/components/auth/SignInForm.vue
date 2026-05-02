@@ -1,31 +1,29 @@
 <script setup lang="ts">
-import { Link, Form } from '@adonisjs/inertia/vue'
-import { usePage } from '@inertiajs/vue3'
-
-const page = usePage()
+import { Form } from '@adonisjs/inertia/vue'
 </script>
 
 <template>
-  <header class="w-full bg-blue-900 text-white">
-    <div class="mx-auto flex max-w-7xl items-center px-6 py-4">
+  <div class="mt-8 flex items-center justify-center">
+  <Form route="session.store" v-slot="{ errors }" class="space-y-4">
 
-      <div class="flex-1">
-        <h1 class="text-xl font-bold">
-          <Link route="home">AdoniSport</Link>
-        </h1>
-      </div>
-
-      <nav class="flex flex-1 justify-center gap-8 text-sm">
-        <Link route="products.index" class="hover:text-gray-300">
-          PRODUITS
-        </Link>
-      </nav>
-
-      <div class="flex flex-1 justify-end gap-6 text-sm">
-        <a href="/login" class="hover:text-gray-300">Login</a>
-        <a href="/signup" class="hover:text-gray-300">Signup</a>
-      </div>
-
+    <div class="grid grid-cols-3 items-center gap-4">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email"
+        class="col-span-2 bg-white text-black rounded px-2 py-1" />
     </div>
-  </header>
+    <div v-if="errors.email">{{ errors.email }}</div>
+
+    <div class="grid grid-cols-3 items-center gap-4">
+      <label for="password">Mot de passe</label>
+      <input type="password" name="password" id="password"
+        class="col-span-2 bg-white text-black rounded px-2 py-1" />
+    </div>
+    <div v-if="errors.password">{{ errors.password }}</div>
+
+    <button type="submit">
+      Valider
+    </button>
+
+  </Form>
+  </div>
 </template>

@@ -23,8 +23,7 @@ router
 
     router.get('login', [controllers.Session, 'create']).as('login')
     router.post('login', [controllers.Session, 'store'])
-
-    router.get('test', ({response})=>response.redirect().toRoute('home')).as('test')   })
+  })
   .use(middleware.guest())
 
 router

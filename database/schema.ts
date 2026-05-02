@@ -55,7 +55,7 @@ export class ProductVariantSchema extends BaseModel {
   @column()
   declare image: string | null
   @column()
-  declare price: string
+  declare price: number
   @column()
   declare productId: number | null
   @column()
@@ -72,7 +72,7 @@ export class ProductSchema extends BaseModel {
   static $columns = ['basePrice', 'brandId', 'categoryId', 'createdAt', 'description', 'id', 'image', 'isActive', 'isFeatured', 'name', 'slug', 'updatedAt'] as const
   $columns = ProductSchema.$columns
   @column()
-  declare basePrice: string
+  declare basePrice: number
   @column()
   declare brandId: number | null
   @column()
