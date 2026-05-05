@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { Link, Form } from '@adonisjs/inertia/vue'
+import { Data } from '@generated/data';
 import { usePage } from '@inertiajs/vue3'
 
-const page = usePage()
+const page = usePage<Data.SharedProps>()
+
 </script>
 
 <template>
@@ -19,7 +21,13 @@ const page = usePage()
         <Link route="products.index" class="hover:text-gray-300">
           PRODUITS
         </Link>
+        
+       <template v-if="page.props.user?.isAdmin">
+        <span>ADMIN</span>
+      </template>
       </nav>
+      
+
 
       <div class="flex flex-1 justify-end gap-6 text-sm">
         <template v-if="page.props.user">

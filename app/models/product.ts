@@ -1,11 +1,8 @@
-import { BaseModel, column, belongsTo, hasMany } from '@adonisjs/lucid/orm'
-import Category from '#models/category'
-import Brand from '#models/brand'
-import ProductVariant from '#models/product_variant'
+import { ProductSchema } from '#database/schema'
+import { column } from '@adonisjs/lucid/orm'
+import { DateTime } from 'luxon'
 
-import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
-
-export default class Product extends BaseModel {
+export default class Product extends ProductSchema {
   @column({ isPrimary: true })
   declare id: number
 
@@ -13,26 +10,17 @@ export default class Product extends BaseModel {
   declare name: string
 
   @column()
-  declare slug: string
+  declare price: number
 
   @column()
-  declare description: string | null
+  declare stock: number
 
   @column()
-  declare basePrice: number
+  declare imageUrl: string | null
 
-  @column()
-  declare categoryId: number
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
 
-  @column()
-  declare brandId: number | null
-
-  @belongsTo(() => Category)
-  declare category: BelongsTo<typeof Category>
-
-  @belongsTo(() => Brand)
-  declare brand: BelongsTo<typeof Brand>
-
-  @hasMany(() => ProductVariant)
-  declare variants: HasMany<typeof ProductVariant>
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime
 }

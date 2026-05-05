@@ -7,98 +7,27 @@
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 
-export class BrandSchema extends BaseModel {
-  static $columns = ['createdAt', 'id', 'logo', 'name', 'slug', 'updatedAt'] as const
-  $columns = BrandSchema.$columns
+export class ProductSchema extends BaseModel {
+  static $columns = ['createdAt', 'id', 'imageUrl', 'name', 'price', 'stock', 'updatedAt'] as const
+  $columns = ProductSchema.$columns
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
   @column({ isPrimary: true })
   declare id: number
   @column()
-  declare logo: string | null
+  declare imageUrl: string | null
   @column()
   declare name: string
-  @column()
-  declare slug: string
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
-}
-
-export class CategorySchema extends BaseModel {
-  static $columns = ['createdAt', 'description', 'id', 'image', 'name', 'slug', 'updatedAt'] as const
-  $columns = CategorySchema.$columns
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime | null
-  @column()
-  declare description: string | null
-  @column({ isPrimary: true })
-  declare id: number
-  @column()
-  declare image: string | null
-  @column()
-  declare name: string
-  @column()
-  declare slug: string
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
-}
-
-export class ProductVariantSchema extends BaseModel {
-  static $columns = ['color', 'createdAt', 'id', 'image', 'price', 'productId', 'size', 'sku', 'stock', 'updatedAt'] as const
-  $columns = ProductVariantSchema.$columns
-  @column()
-  declare color: string | null
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime | null
-  @column({ isPrimary: true })
-  declare id: number
-  @column()
-  declare image: string | null
   @column()
   declare price: number
   @column()
-  declare productId: number | null
-  @column()
-  declare size: string | null
-  @column()
-  declare sku: string
-  @column()
-  declare stock: number | null
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
-}
-
-export class ProductSchema extends BaseModel {
-  static $columns = ['basePrice', 'brandId', 'categoryId', 'createdAt', 'description', 'id', 'image', 'isActive', 'isFeatured', 'name', 'slug', 'updatedAt'] as const
-  $columns = ProductSchema.$columns
-  @column()
-  declare basePrice: number
-  @column()
-  declare brandId: number | null
-  @column()
-  declare categoryId: number | null
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime | null
-  @column()
-  declare description: string | null
-  @column({ isPrimary: true })
-  declare id: number
-  @column()
-  declare image: string | null
-  @column()
-  declare isActive: boolean | null
-  @column()
-  declare isFeatured: boolean | null
-  @column()
-  declare name: string
-  @column()
-  declare slug: string
+  declare stock: number
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 }
 
 export class UserSchema extends BaseModel {
-  static $columns = ['createdAt', 'email', 'fullName', 'id', 'password', 'updatedAt'] as const
+  static $columns = ['createdAt', 'email', 'fullName', 'id', 'isAdmin', 'password', 'updatedAt'] as const
   $columns = UserSchema.$columns
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -108,6 +37,8 @@ export class UserSchema extends BaseModel {
   declare fullName: string | null
   @column({ isPrimary: true })
   declare id: number
+  @column()
+  declare isAdmin: boolean
   @column({ serializeAs: null })
   declare password: string
   @column.dateTime({ autoCreate: true, autoUpdate: true })
