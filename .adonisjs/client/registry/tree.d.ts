@@ -3,9 +3,6 @@ import type { routes } from './index.ts'
 
 export interface ApiDefinition {
   home: typeof routes['home']
-  products: {
-    index: typeof routes['products.index']
-  }
   signup: typeof routes['signup']
   newAccount: {
     store: typeof routes['new_account.store']
@@ -13,6 +10,10 @@ export interface ApiDefinition {
   login: typeof routes['login']
   session: {
     store: typeof routes['session.store']
+  }
+  products: {
+    index: typeof routes['products.index']
+    store: typeof routes['products.store']
   }
   logout: typeof routes['logout']
 }

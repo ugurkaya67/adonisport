@@ -21,7 +21,7 @@ router
     router.get('login', [controllers.Session, 'create']).as('login')
     router.post('login', [controllers.Session, 'store'])
 
-    router.get('products', [controllers.Products, 'create']).as('products.create')
+    router.get('products', [controllers.Products, 'index']).as('products.index')
     router.post('products', [controllers.Products, 'store']).as('products.store')
   })
   .use(middleware.guest())
