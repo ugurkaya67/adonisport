@@ -11,6 +11,7 @@ import Footer from '../components/Footer.vue'
         <Header />
         <main>
           home
+          
         </main>
         <Footer />
     </div>
