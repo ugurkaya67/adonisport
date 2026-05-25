@@ -23,8 +23,10 @@ const page = usePage<Data.SharedProps>()
         </Link>
         
        <template v-if="page.props.user?.isAdmin">
-        <span>ADMIN</span>
-      </template>
+        <Link route="admin.index" class="hover:text-gray-300">
+          Admin
+        </Link>  
+        </template>
       </nav>
       
 

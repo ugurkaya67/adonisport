@@ -28,6 +28,12 @@ router
 
 router
   .group(() => {
+    router.get('admin', [controllers.Admin, 'index']).as('admin.index')
+  })
+  .use(middleware.auth())
+
+router
+  .group(() => {
     router.post('logout', [controllers.Session, 'destroy']).as('logout')
   })
   .use(middleware.auth())

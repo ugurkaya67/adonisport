@@ -48,6 +48,12 @@ const routes = {
     tokens: [{"old":"/products","type":0,"val":"products","end":""}],
     types: placeholder as Registry['products.store']['types'],
   },
+  'admin.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/admin',
+    tokens: [{"old":"/admin","type":0,"val":"admin","end":""}],
+    types: placeholder as Registry['admin.index']['types'],
+  },
   'logout': {
     methods: ["POST"],
     pattern: '/logout',

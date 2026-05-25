@@ -21,13 +21,6 @@ const page = usePage<{
             <ProductForm /> 
             <div class="mt-10">
               <ProductList :products="page.props.products" />
-              <!--
-              <div v-for="product in page.props.products" :key="product.id">
-                {{ product.name}} 
-                Stock: {{ product.stock }}
-                Prix: {{ product.price }} Euros
-                Image: <img :src="product.imageUrl" alt="Image du produit" class="w-30 h-30 object-cover" />
-              </div>-->
             </div>
         </main>
     <Footer />
