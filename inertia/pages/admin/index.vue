@@ -4,8 +4,10 @@ import { ref } from 'vue'
 import Header from '../../components/Header.vue'
 import Footer from '../../components/Footer.vue'
 import CategoriesForm from '../../components/categories/CategoriesForm.vue'
+import BrandsForm from '../../components/brands/BrandsForm.vue'
 
 const showCategoryForm = ref(false)
+const showBrandForm = ref(false)
 </script>
 
 <template>
@@ -38,7 +40,10 @@ const showCategoryForm = ref(false)
             + Ajouter une catégorie
           </button>
 
-          <button class="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800">
+          <button
+            class="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
+            @click="showBrandForm = !showBrandForm"
+          >
             + Ajouter une marque
           </button>
         </div>
@@ -55,6 +60,19 @@ const showCategoryForm = ref(false)
 
         <CategoriesForm />
       </section>
+
+      <!-- Formulaire marque -->
+      <section
+        v-if="showBrandForm"
+        class="mt-6 rounded-xl bg-white p-6 shadow"
+      >
+        <h2 class="mb-4 text-xl font-bold">
+          Ajouter une marque
+        </h2>
+
+        <BrandsForm />
+      </section>
+
 
       <!-- Liste produits -->
       <section class="mt-8 rounded-xl bg-white p-6 shadow">

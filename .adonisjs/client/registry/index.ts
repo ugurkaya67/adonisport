@@ -66,6 +66,18 @@ const routes = {
     tokens: [{"old":"/categories","type":0,"val":"categories","end":""}],
     types: placeholder as Registry['categories.store']['types'],
   },
+  'brands.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/brands',
+    tokens: [{"old":"/brands","type":0,"val":"brands","end":""}],
+    types: placeholder as Registry['brands.index']['types'],
+  },
+  'brands.store': {
+    methods: ["POST"],
+    pattern: '/brands',
+    tokens: [{"old":"/brands","type":0,"val":"brands","end":""}],
+    types: placeholder as Registry['brands.store']['types'],
+  },
   'logout': {
     methods: ["POST"],
     pattern: '/logout',

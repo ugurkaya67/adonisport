@@ -127,6 +127,30 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/categories_controller').default['store']>>>
     }
   }
+  'brands.index': {
+    methods: ["GET","HEAD"]
+    pattern: '/brands'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/brands_controller').default['index']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/brands_controller').default['index']>>>
+    }
+  }
+  'brands.store': {
+    methods: ["POST"]
+    pattern: '/brands'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/brands_controller').default['store']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/brands_controller').default['store']>>>
+    }
+  }
   'logout': {
     methods: ["POST"]
     pattern: '/logout'

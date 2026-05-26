@@ -32,6 +32,9 @@ router
 
     router.get('categories', [controllers.Categories, 'index']).as('categories.index')
     router.post('categories', [controllers.Categories, 'store']).as('categories.store')
+
+    router.get('brands', [controllers.Brands, 'index']).as('brands.index')
+    router.post('brands', [controllers.Brands, 'store']).as('brands.store')
   })
   .use(middleware.auth())
 
