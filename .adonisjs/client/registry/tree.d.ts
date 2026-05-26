@@ -18,5 +18,9 @@ export interface ApiDefinition {
   admin: {
     index: typeof routes['admin.index']
   }
+  categories: {
+    index: typeof routes['categories.index']
+    store: typeof routes['categories.store']
+  }
   logout: typeof routes['logout']
 }

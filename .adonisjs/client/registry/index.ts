@@ -54,6 +54,18 @@ const routes = {
     tokens: [{"old":"/admin","type":0,"val":"admin","end":""}],
     types: placeholder as Registry['admin.index']['types'],
   },
+  'categories.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/categories',
+    tokens: [{"old":"/categories","type":0,"val":"categories","end":""}],
+    types: placeholder as Registry['categories.index']['types'],
+  },
+  'categories.store': {
+    methods: ["POST"],
+    pattern: '/categories',
+    tokens: [{"old":"/categories","type":0,"val":"categories","end":""}],
+    types: placeholder as Registry['categories.store']['types'],
+  },
   'logout': {
     methods: ["POST"],
     pattern: '/logout',

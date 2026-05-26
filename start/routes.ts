@@ -29,6 +29,9 @@ router
 router
   .group(() => {
     router.get('admin', [controllers.Admin, 'index']).as('admin.index')
+
+    router.get('categories', [controllers.Categories, 'index']).as('categories.index')
+    router.post('categories', [controllers.Categories, 'store']).as('categories.store')
   })
   .use(middleware.auth())
 

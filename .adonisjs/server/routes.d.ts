@@ -12,6 +12,8 @@ export type ScannedRoutes = {
     'products.index': { paramsTuple?: []; params?: {} }
     'products.store': { paramsTuple?: []; params?: {} }
     'admin.index': { paramsTuple?: []; params?: {} }
+    'categories.index': { paramsTuple?: []; params?: {} }
+    'categories.store': { paramsTuple?: []; params?: {} }
     'logout': { paramsTuple?: []; params?: {} }
   }
   GET: {
@@ -20,6 +22,7 @@ export type ScannedRoutes = {
     'login': { paramsTuple?: []; params?: {} }
     'products.index': { paramsTuple?: []; params?: {} }
     'admin.index': { paramsTuple?: []; params?: {} }
+    'categories.index': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'home': { paramsTuple?: []; params?: {} }
@@ -27,11 +30,13 @@ export type ScannedRoutes = {
     'login': { paramsTuple?: []; params?: {} }
     'products.index': { paramsTuple?: []; params?: {} }
     'admin.index': { paramsTuple?: []; params?: {} }
+    'categories.index': { paramsTuple?: []; params?: {} }
   }
   POST: {
     'new_account.store': { paramsTuple?: []; params?: {} }
     'session.store': { paramsTuple?: []; params?: {} }
     'products.store': { paramsTuple?: []; params?: {} }
+    'categories.store': { paramsTuple?: []; params?: {} }
     'logout': { paramsTuple?: []; params?: {} }
   }
 }
