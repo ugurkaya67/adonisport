@@ -13,7 +13,7 @@ export default class ProductsController {
 
   async store({ request, response }: HttpContext) {
     const data = request.only(['name', 'price', 'stock', 'image_url', 'brand_id', 'category_id'])
-    console.log(data)
+
     await Product.create(data)
 
     return response.redirect().toRoute('products.index')

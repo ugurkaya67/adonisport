@@ -14,7 +14,7 @@ const showBrandForm = ref(false)
 const showProductForm = ref(false)
 
 const page = usePage<{
-  products: Data.Product[]
+  products: Data.Product.Variants[]
 }>()
 </script>
 
@@ -119,28 +119,47 @@ const page = usePage<{
                 <th class="px-4 py-3">Nom</th>
                 <th class="px-4 py-3">Prix</th>
                 <th class="px-4 py-3">Stock</th>
+                <th class="px-4 py-3">Marque</th>
+                <th class="px-4 py-3">Catégorie</th>
                 <th class="px-4 py-3">Actions</th>
               </tr>
             </thead>
-
             <tbody>
-              <tr class="border-b">
+              <tr class="border-b" v-for="product in page.props.products" :key="product.id">
                 <td class="px-4 py-3">
-                  <div class="h-12 w-12 rounded bg-gray-200"></div>
+                  <img
+                    v-if="product.imageUrl"
+                    :src="product.imageUrl"
+                    :alt="product.name"
+                    class="h-14 w-14 rounded object-cover border"
+                  />
+
+                  <div
+                    v-else
+                    class="h-14 w-14 rounded bg-gray-200"
+                  ></div>
                 </td>
 
                 <td class="px-4 py-3 font-medium">
-                  Exemple produit
+                  {{ product.name }}
                 </td>
 
                 <td class="px-4 py-3">
-                  29.99 €
+                  {{ product.price }} €
                 </td>
 
                 <td class="px-4 py-3">
-                  10
+                  {{ product.stock }}
                 </td>
 
+                <td class="px-4 py-3">
+                  {{ product.brand.name }}
+                </td>
+
+                <td class="px-4 py-3">
+                  {{ product.category.name }}
+                </td>
+                               
                 <td class="px-4 py-3">
                   <button class="text-blue-700 hover:underline">
                     Modifier
