@@ -5,33 +5,33 @@ type ParamValue = string | number | bigint | boolean
 export type ScannedRoutes = {
   ALL: {
     'home': { paramsTuple?: []; params?: {} }
+    'products.index': { paramsTuple?: []; params?: {} }
     'signup': { paramsTuple?: []; params?: {} }
     'new_account.store': { paramsTuple?: []; params?: {} }
     'login': { paramsTuple?: []; params?: {} }
     'session.store': { paramsTuple?: []; params?: {} }
-    'products.index': { paramsTuple?: []; params?: {} }
-    'products.store': { paramsTuple?: []; params?: {} }
     'admin.index': { paramsTuple?: []; params?: {} }
     'categories.index': { paramsTuple?: []; params?: {} }
     'categories.store': { paramsTuple?: []; params?: {} }
     'brands.index': { paramsTuple?: []; params?: {} }
     'brands.store': { paramsTuple?: []; params?: {} }
+    'products.store': { paramsTuple?: []; params?: {} }
     'logout': { paramsTuple?: []; params?: {} }
   }
   GET: {
     'home': { paramsTuple?: []; params?: {} }
+    'products.index': { paramsTuple?: []; params?: {} }
     'signup': { paramsTuple?: []; params?: {} }
     'login': { paramsTuple?: []; params?: {} }
-    'products.index': { paramsTuple?: []; params?: {} }
     'admin.index': { paramsTuple?: []; params?: {} }
     'categories.index': { paramsTuple?: []; params?: {} }
     'brands.index': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'home': { paramsTuple?: []; params?: {} }
+    'products.index': { paramsTuple?: []; params?: {} }
     'signup': { paramsTuple?: []; params?: {} }
     'login': { paramsTuple?: []; params?: {} }
-    'products.index': { paramsTuple?: []; params?: {} }
     'admin.index': { paramsTuple?: []; params?: {} }
     'categories.index': { paramsTuple?: []; params?: {} }
     'brands.index': { paramsTuple?: []; params?: {} }
@@ -39,9 +39,9 @@ export type ScannedRoutes = {
   POST: {
     'new_account.store': { paramsTuple?: []; params?: {} }
     'session.store': { paramsTuple?: []; params?: {} }
-    'products.store': { paramsTuple?: []; params?: {} }
     'categories.store': { paramsTuple?: []; params?: {} }
     'brands.store': { paramsTuple?: []; params?: {} }
+    'products.store': { paramsTuple?: []; params?: {} }
     'logout': { paramsTuple?: []; params?: {} }
   }
 }

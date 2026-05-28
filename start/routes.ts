@@ -13,6 +13,8 @@ import router from '@adonisjs/core/services/router'
 
 router.on('/').renderInertia('home', {}).as('home')
 
+router.get('products', [controllers.Products, 'index']).as('products.index')
+
 router
   .group(() => {
     router.get('signup', [controllers.NewAccount, 'create']).as('signup')
@@ -20,9 +22,6 @@ router
 
     router.get('login', [controllers.Session, 'create']).as('login')
     router.post('login', [controllers.Session, 'store'])
-
-    router.get('products', [controllers.Products, 'index']).as('products.index')
-    router.post('products', [controllers.Products, 'store']).as('products.store')
   })
   .use(middleware.guest())
 
@@ -35,6 +34,8 @@ router
 
     router.get('brands', [controllers.Brands, 'index']).as('brands.index')
     router.post('brands', [controllers.Brands, 'store']).as('brands.store')
+
+    router.post('products', [controllers.Products, 'store']).as('products.store')
   })
   .use(middleware.auth())
 

@@ -36,8 +36,12 @@ export class CategorySchema extends BaseModel {
 }
 
 export class ProductSchema extends BaseModel {
-  static $columns = ['createdAt', 'id', 'imageUrl', 'name', 'price', 'stock', 'updatedAt'] as const
+  static $columns = ['brandId', 'categoryId', 'createdAt', 'id', 'imageUrl', 'name', 'price', 'stock', 'updatedAt'] as const
   $columns = ProductSchema.$columns
+  @column()
+  declare brandId: number | null
+  @column()
+  declare categoryId: number | null
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
   @column({ isPrimary: true })

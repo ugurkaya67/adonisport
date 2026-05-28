@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { Form } from '@adonisjs/inertia/vue'
+import { Data } from '@generated/data'
+
+defineProps<{
+  brands: Data.Brand[]
+  categories: Data.Category[]
+}>()
 </script>
 
 <template>
   <div class="mt-8 flex items-center justify-center">
-  <Form route="products.store" v-slot="{ errors }" class="space-y-4">
+  <Form route="products.store" method="post" v-slot="{ errors }" class="space-y-4">
 
     <div class="grid grid-cols-3 items-center gap-4">
       <label for="name">Nom du produit</label>
@@ -33,6 +39,27 @@ import { Form } from '@adonisjs/inertia/vue'
         class="col-span-2 bg-white text-black rounded px-2 py-1" />
     </div>
     <div v-if="errors.image_url">{{ errors.image_url }}</div>
+
+    <div class="grid grid-cols-3 items-center gap-4">
+      <label for="category_id">Catégorie</label>
+      <select name="category_id" id="category_id"
+        class="col-span-2 bg-white text-black rounded px-2 py-1">
+        <option value="">Sélectionnez une catégorie</option>
+        <option v-for="category in categories" :key="category.id" :value="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+    </div>
+    <div class="grid grid-cols-3 items-center gap-4">
+      <label for="brand_id">Marque</label>
+      <select name="brand_id" id="brand_id"
+        class="col-span-2 bg-white text-black rounded px-2 py-1">
+        <option value="">Sélectionnez une marque</option>
+        <option v-for="brand in brands" :key="brand.id" :value="brand.id">
+          {{ brand.name }}
+        </option>
+      </select>
+    </div>
 
     <button type="submit">
       Créer le produit

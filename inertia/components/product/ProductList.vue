@@ -40,6 +40,7 @@ defineProps<{
           :alt="product.name"
           class="mt-4 h-48 w-full rounded object-cover"
         />
+
       </div>
     </div>
 

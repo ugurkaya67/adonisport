@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Link, Form } from '@adonisjs/inertia/vue'
-import ProductForm from '../../components/product/ProductForm.vue'
 import ProductList from '../../components/product/ProductList.vue'
 import Header from '../../components/Header.vue'
 import Footer from '../../components/Footer.vue'
@@ -18,7 +17,7 @@ const page = usePage<{
       <Header />
         <main>
              <!-- Composant du formulaire-->
-            <ProductForm /> 
+            
             <div class="mt-10">
               <ProductList :products="page.props.products" />
             </div>

@@ -4,7 +4,7 @@ import { Form } from '@adonisjs/inertia/vue'
 
 <template>
   <div class="mt-8 flex items-center justify-center">
-  <Form route="session.store" v-slot="{ errors }" class="space-y-4">
+  <Form route="session.store" method="post" v-slot="{ errors }" class="space-y-4">
 
     <div class="grid grid-cols-3 items-center gap-4">
       <label for="email">Email</label>

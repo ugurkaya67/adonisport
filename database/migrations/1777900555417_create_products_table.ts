@@ -7,6 +7,22 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
 
+      table
+        .integer('brand_id')
+        .unsigned()
+        .references('id')
+        .inTable('brands')
+        .onDelete('SET NULL')
+        .nullable()
+
+      table
+        .integer('category_id')
+        .unsigned()
+        .references('id')
+        .inTable('categories')
+        .onDelete('SET NULL')
+        .nullable()
+
       table.string('name').notNullable()
 
       table.decimal('price', 10, 2).notNullable()

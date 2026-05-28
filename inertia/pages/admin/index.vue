@@ -5,9 +5,17 @@ import Header from '../../components/Header.vue'
 import Footer from '../../components/Footer.vue'
 import CategoriesForm from '../../components/categories/CategoriesForm.vue'
 import BrandsForm from '../../components/brands/BrandsForm.vue'
+import ProductsForm from '../../components/product/ProductForm.vue'
+import { Data } from '@generated/data';
+import { usePage } from '@inertiajs/vue3'
 
 const showCategoryForm = ref(false)
 const showBrandForm = ref(false)
+const showProductForm = ref(false)
+
+const page = usePage<{
+  products: Data.Product[]
+}>()
 </script>
 
 <template>
@@ -29,7 +37,10 @@ const showBrandForm = ref(false)
 
         <!-- Actions -->
         <div class="mt-6 flex flex-wrap gap-4">
-          <button class="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800">
+          <button
+            class="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
+            @click="showProductForm = !showProductForm"
+          >
             + Ajouter un produit
           </button>
 
@@ -73,6 +84,20 @@ const showBrandForm = ref(false)
         <BrandsForm />
       </section>
 
+      <!-- Formulaire produit -->
+      <section
+        v-if="showProductForm"
+        class="mt-6 rounded-xl bg-white p-6 shadow"
+      >
+        <h2 class="mb-4 text-xl font-bold">
+          Ajouter un produit
+        </h2>
+
+        <ProductsForm
+          :brands="page.props.brands"
+          :categories="page.props.categories"
+        />
+      </section>
 
       <!-- Liste produits -->
       <section class="mt-8 rounded-xl bg-white p-6 shadow">
