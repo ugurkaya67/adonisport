@@ -78,6 +78,12 @@ const routes = {
     tokens: [{"old":"/products","type":0,"val":"products","end":""}],
     types: placeholder as Registry['products.store']['types'],
   },
+  'products.destroy': {
+    methods: ["DELETE"],
+    pattern: '/products/:id',
+    tokens: [{"old":"/products/:id","type":0,"val":"products","end":""},{"old":"/products/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['products.destroy']['types'],
+  },
   'logout': {
     methods: ["POST"],
     pattern: '/logout',

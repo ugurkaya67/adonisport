@@ -18,4 +18,12 @@ export default class ProductsController {
 
     return response.redirect().toRoute('products.index')
   }
+
+  async destroy({ params, response }: HttpContext) {
+    const product = await Product.findOrFail(params.id)
+
+    await product.delete()
+
+    return response.redirect().toRoute('admin.index')
+  }
 }

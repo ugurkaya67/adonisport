@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Data } from '@generated/data';
+import { usePage } from '@inertiajs/vue3'
+import { Form } from '@adonisjs/inertia/vue'
 
 import Header from '../../components/Header.vue'
 import Footer from '../../components/Footer.vue'
 import CategoriesForm from '../../components/categories/CategoriesForm.vue'
 import BrandsForm from '../../components/brands/BrandsForm.vue'
 import ProductsForm from '../../components/product/ProductForm.vue'
-import { Data } from '@generated/data';
-import { usePage } from '@inertiajs/vue3'
+
 
 const showCategoryForm = ref(false)
 const showBrandForm = ref(false)
@@ -141,7 +143,7 @@ const page = usePage<{
                 </td>
 
                 <td class="px-4 py-3 font-medium">
-                  {{ product.name }}
+                  {{ product.id }} - {{ product.name }}
                 </td>
 
                 <td class="px-4 py-3">
@@ -164,6 +166,16 @@ const page = usePage<{
                   <button class="text-blue-700 hover:underline">
                     Modifier
                   </button>
+                  <Form
+                    route="products.destroy"
+                    :params="{ id: product.id }"
+                    method="delete"
+                  >
+                    <button type="submit" class="text-red-700 hover:underline"
+                    >
+                      Supprimer
+                    </button>
+                  </Form>
                 </td>
               </tr>
             </tbody>
