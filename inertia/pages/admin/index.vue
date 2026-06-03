@@ -14,6 +14,7 @@ import ProductsForm from '../../components/product/ProductForm.vue'
 const showCategoryForm = ref(false)
 const showBrandForm = ref(false)
 const showProductForm = ref(false)
+const selectedProduct = ref(null)
 
 const page = usePage<{
   products: Data.Product.Variants[]
@@ -41,7 +42,7 @@ const page = usePage<{
         <div class="mt-6 flex flex-wrap gap-4">
           <button
             class="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
-            @click="showProductForm = !showProductForm"
+            @click="selectedProduct = null; showProductForm = true"
           >
             + Ajouter un produit
           </button>
@@ -98,6 +99,7 @@ const page = usePage<{
         <ProductsForm
           :brands="page.props.brands"
           :categories="page.props.categories"
+          :product="selectedProduct"
         />
       </section>
 
@@ -163,9 +165,15 @@ const page = usePage<{
                 </td>
                                
                 <td class="px-4 py-3">
-                  <button class="text-blue-700 hover:underline">
+                  <!-- Bouton modifier et supprimer pour chaque produit -->
+                  <button
+                    type="button"
+                    class="text-blue-700 hover:underline"
+                    @click="selectedProduct = product; showProductForm = true"
+                  >
                     Modifier
                   </button>
+
                   <Form
                     route="products.destroy"
                     :params="{ id: product.id }"

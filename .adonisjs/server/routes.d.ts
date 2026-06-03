@@ -16,6 +16,7 @@ export type ScannedRoutes = {
     'brands.index': { paramsTuple?: []; params?: {} }
     'brands.store': { paramsTuple?: []; params?: {} }
     'products.store': { paramsTuple?: []; params?: {} }
+    'products.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'products.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'logout': { paramsTuple?: []; params?: {} }
   }
@@ -44,6 +45,9 @@ export type ScannedRoutes = {
     'brands.store': { paramsTuple?: []; params?: {} }
     'products.store': { paramsTuple?: []; params?: {} }
     'logout': { paramsTuple?: []; params?: {} }
+  }
+  PUT: {
+    'products.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   DELETE: {
     'products.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }

@@ -37,6 +37,7 @@ router
 
     router.post('products', [controllers.Products, 'store']).as('products.store')
 
+    router.put('products/:id', [controllers.Products, 'update']).as('products.update')
     router.delete('products/:id', [controllers.Products, 'destroy']).as('products.destroy')
   })
   .use(middleware.auth())
