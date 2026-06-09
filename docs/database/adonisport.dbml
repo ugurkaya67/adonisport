@@ -1,0 +1,45 @@
+Table users {
+id integer [pk, increment]
+full_name varchar
+email varchar [unique]
+password varchar
+is_admin boolean
+
+created_at timestamp
+updated_at timestamp
+}
+
+Table brands {
+id integer [pk, increment]
+name varchar
+logo_url varchar
+
+created_at timestamp
+updated_at timestamp
+}
+
+Table categories {
+id integer [pk, increment]
+name varchar
+
+created_at timestamp
+updated_at timestamp
+}
+
+Table products {
+id integer [pk, increment]
+
+name varchar
+price decimal
+stock integer
+image_url varchar
+
+brand_id integer
+category_id integer
+
+created_at timestamp
+updated_at timestamp
+}
+
+Ref: products.brand_id > brands.id
+Ref: products.category_id > categories.id

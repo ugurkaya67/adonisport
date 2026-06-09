@@ -11,3 +11,7 @@ Commande pour créer un controller
 ```bash
 node ace make:controller Admin
 ```
+
+## Database Diagram
+
+![Database Diagram](docs/database/adonisport-schema.png)
