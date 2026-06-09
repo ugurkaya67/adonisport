@@ -1,5 +1,5 @@
 import { client } from '~/client'
-import Layout from '~/layouts/default.vue'
+import AppLayout from '~/layouts/AppLayout.vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { TuyauProvider } from '@adonisjs/inertia/vue'
 import { renderToString } from '@vue/server-renderer'
@@ -14,7 +14,7 @@ export default function render(page: any) {
       return resolvePageComponent(
         `./pages/${name}.vue`,
         import.meta.glob<DefineComponent>('./pages/**/*.vue', { eager: true }),
-        Layout
+        AppLayout
       )
     },
     setup: ({ App, props, plugin }) => {
