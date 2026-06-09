@@ -4,8 +4,7 @@ import { Data } from '@generated/data';
 import { usePage } from '@inertiajs/vue3'
 import { Form } from '@adonisjs/inertia/vue'
 
-import Header from '../../components/Header.vue'
-import Footer from '../../components/Footer.vue'
+import AppLayout from '../../layouts/AppLayout.vue'
 import CategoriesForm from '../../components/categories/CategoriesForm.vue'
 import BrandsForm from '../../components/brands/BrandsForm.vue'
 import ProductsForm from '../../components/product/ProductForm.vue'
@@ -24,10 +23,8 @@ const page = usePage<{
 <template>
   <Head title="Admin" />
 
-  <div class="min-h-screen bg-gray-100 text-gray-900">
-    <Header />
-
-    <main class="mx-auto max-w-7xl px-6 py-8">
+  <AppLayout>
+    <div class="mx-auto max-w-7xl px-6 py-8">
       <!-- En-tête admin -->
       <section class="rounded-xl bg-white p-6 shadow">
         <h1 class="text-2xl font-bold">
@@ -190,8 +187,6 @@ const page = usePage<{
           </table>
         </div>
       </section>
-    </main>
-
-    <Footer />
-  </div>
+    </div>
+  </AppLayout>
 </template>
