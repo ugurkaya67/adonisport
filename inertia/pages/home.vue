@@ -7,7 +7,7 @@ import { Head } from '@inertiajs/vue3'
   <Head title="Homepage" />
 
   <div class="min-h-screen bg-black text-white"> 
-    home 3
+    home
   </div> 
 
 </template>
