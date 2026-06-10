@@ -16,6 +16,8 @@ const selectedProduct = ref(null)
 
 const page = usePage<{
   products: Data.Product.Variants[]
+  categories: Data.Category[]
+  brands: Data.Brand[]
 }>()
 </script>
 
@@ -179,6 +181,35 @@ const page = usePage<{
                       Supprimer
                     </button>
                   </Form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <!-- Liste catégories -->
+      <section class="mt-8 rounded-xl bg-white p-6 shadow">
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-xl font-bold">
+            Liste des catégories
+          </h2>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse text-left text-sm">
+            <thead>
+              <tr class="border-b bg-gray-50 text-gray-600">
+                <th class="px-4 py-3">ID</th>
+                <th class="px-4 py-3">Nom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b" v-for="category in page.props.categories" :key="category.id">
+                <td class="px-4 py-3">
+                  {{ category.id }}
+                </td>
+                <td class="px-4 py-3">
+                  {{ category.name }}
                 </td>
               </tr>
             </tbody>
