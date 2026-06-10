@@ -3,7 +3,7 @@ import { Form } from '@adonisjs/inertia/vue'
 import { Data } from '@generated/data';
 
 defineProps<{
-  categories: Data.Category[]
+  categories: Data.Category.Variants['minify']
 }>()
 </script>
 

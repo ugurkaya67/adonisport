@@ -1,12 +1,13 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Category from '#models/category'
+import CategoryTransformer from '#transformers/category_transformer'
 
 export default class CategoriesController {
   async index({ inertia }: HttpContext) {
     const categories = await Category.all()
 
     return inertia.render('admin/index', {
-      categories,
+      categories: CategoryTransformer.transform(categories).useVariant('minify'),
     })
   }
 

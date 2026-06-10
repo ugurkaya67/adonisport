@@ -16,7 +16,7 @@ const selectedProduct = ref(null)
 const selectedCategory = ref(null)
 
 const page = usePage<{
-  products: Data.Product.Variants[]
+  products: Data.Product[]
   categories: Data.Category[]
   brands: Data.Brand[]
 }>()
