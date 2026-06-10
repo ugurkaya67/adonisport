@@ -13,6 +13,7 @@ export type ScannedRoutes = {
     'admin.index': { paramsTuple?: []; params?: {} }
     'categories.index': { paramsTuple?: []; params?: {} }
     'categories.store': { paramsTuple?: []; params?: {} }
+    'categories.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'brands.index': { paramsTuple?: []; params?: {} }
     'brands.store': { paramsTuple?: []; params?: {} }
     'products.store': { paramsTuple?: []; params?: {} }
@@ -46,11 +47,12 @@ export type ScannedRoutes = {
     'products.store': { paramsTuple?: []; params?: {} }
     'logout': { paramsTuple?: []; params?: {} }
   }
+  DELETE: {
+    'categories.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'products.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+  }
   PUT: {
     'products.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
-  }
-  DELETE: {
-    'products.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
 }
 declare module '@adonisjs/core/types/http' {

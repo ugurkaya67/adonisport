@@ -10,6 +10,14 @@ export default class CategoriesController {
     })
   }
 
+  async destroy({ params, response }: HttpContext) {
+    const category = await Category.findOrFail(params.id)
+
+    await category.delete()
+
+    return response.redirect().toRoute('admin.index')
+  }
+
   async store({ request, response }: HttpContext) {
     const data = request.only(['name'])
 

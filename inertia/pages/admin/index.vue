@@ -201,6 +201,7 @@ const page = usePage<{
               <tr class="border-b bg-gray-50 text-gray-600">
                 <th class="px-4 py-3">ID</th>
                 <th class="px-4 py-3">Nom</th>
+                <th class="px-4 py-3">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -210,6 +211,25 @@ const page = usePage<{
                 </td>
                 <td class="px-4 py-3">
                   {{ category.name }}
+                </td>
+                <td class="px-4 py-3">
+                  <button
+                    type="button"
+                    class="text-blue-700 hover:underline"
+                    @click="selectedCategory = category; showCategoryForm = true"
+                  >
+                    Modifier
+                  </button>
+                  <Form
+                    route="categories.destroy"
+                    :params="{ id: category.id }"
+                    method="delete"
+                  >
+                    <button type="submit" class="text-red-700 hover:underline"
+                    >
+                      Supprimer
+                    </button>
+                  </Form>
                 </td>
               </tr>
             </tbody>
