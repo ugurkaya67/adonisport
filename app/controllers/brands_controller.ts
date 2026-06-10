@@ -1,12 +1,13 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Brand from '#models/brand'
+import BrandTransformer from '#transformers/brand_transformer'
 
 export default class BrandsController {
   async index({ inertia }: HttpContext) {
     const brands = await Brand.all()
 
     return inertia.render('admin/index', {
-      brands,
+      brands: BrandTransformer.transform(brands).useVariant('minify'),
     })
   }
 

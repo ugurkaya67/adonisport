@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { Form } from '@adonisjs/inertia/vue'
+import { Data } from '@generated/data';
+
+defineProps<{
+  brand: Data.Brand.Variants['minify']
+}>()
 </script>
 
 <template>
@@ -17,6 +22,7 @@ import { Form } from '@adonisjs/inertia/vue'
           type="text"
           name="name"
           id="name"
+          :value="brand?.name"
           class="col-span-2 rounded border bg-white px-3 py-2 text-black"
         />
 
@@ -25,10 +31,11 @@ import { Form } from '@adonisjs/inertia/vue'
         </div>
         
         <label for="logoUrl">URL du logo</label>
-                <input
+        <input
           type="url"
           name="logoUrl"
           id="logoUrl"
+          :value="brand?.logoUrl"
           class="col-span-2 rounded border bg-white px-3 py-2 text-black"
         />
 
