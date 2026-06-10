@@ -16,6 +16,7 @@ export type ScannedRoutes = {
     'categories.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'brands.index': { paramsTuple?: []; params?: {} }
     'brands.store': { paramsTuple?: []; params?: {} }
+    'brands.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'products.store': { paramsTuple?: []; params?: {} }
     'products.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'products.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
@@ -49,6 +50,7 @@ export type ScannedRoutes = {
   }
   DELETE: {
     'categories.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'brands.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'products.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   PUT: {

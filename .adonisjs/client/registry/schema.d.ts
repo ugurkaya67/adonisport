@@ -151,6 +151,18 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/brands_controller').default['store']>>>
     }
   }
+  'brands.destroy': {
+    methods: ["DELETE"]
+    pattern: '/brands/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/brands_controller').default['destroy']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/brands_controller').default['destroy']>>>
+    }
+  }
   'products.store': {
     methods: ["POST"]
     pattern: '/products'

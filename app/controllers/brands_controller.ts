@@ -10,6 +10,13 @@ export default class BrandsController {
     })
   }
 
+  async destroy({ params, response }: HttpContext) {
+    const brand = await Brand.findOrFail(params.id)
+    await brand.delete()
+
+    return response.redirect().toRoute('admin.index')
+  }
+
   async store({ request, response }: HttpContext) {
     const data = request.only(['name', 'logoUrl'])
 

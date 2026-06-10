@@ -14,6 +14,7 @@ const showBrandForm = ref(false)
 const showProductForm = ref(false)
 const selectedProduct = ref(null)
 const selectedCategory = ref(null)
+const selectedBrand = ref(null)
 
 const page = usePage<{
   products: Data.Product[]
@@ -84,7 +85,9 @@ const page = usePage<{
           Ajouter une marque
         </h2>
 
-        <BrandsForm />
+        <BrandsForm 
+        :brand="selectedBrand"
+        />
       </section>
 
       <!-- Formulaire produit -->
@@ -226,6 +229,60 @@ const page = usePage<{
                   <Form
                     route="categories.destroy"
                     :params="{ id: category.id }"
+                    method="delete"
+                  >
+                    <button type="submit" class="text-red-700 hover:underline"
+                    >
+                      Supprimer
+                    </button>
+                  </Form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Liste des marques -->
+      <section class="mt-8 rounded-xl bg-white p-6 shadow">
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-xl font-bold">
+            Liste des marques
+          </h2>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse text-left text-sm">
+            <thead>
+              <tr class="border-b bg-gray-50 text-gray-600">
+                <th class="px-4 py-3">ID</th>
+                <th class="px-4 py-3">Nom</th>
+                <th class="px-4 py-3">Logo URL</th>
+                <th class="px-4 py-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b" v-for="brand in page.props.brands" :key="brand.id">
+                <td class="px-4 py-3">
+                  {{ brand.id }}
+                </td>
+                <td class="px-4 py-3">
+                  {{ brand.name }}
+                </td>
+                <td class="px-4 py-3">
+                  {{ brand.logoUrl }}
+                </td>
+                <td class="px-4 py-3">
+                  <button
+                    type="button"
+                    class="text-blue-700 hover:underline"
+                    @click="selectedBrand = brand; showBrandForm = true"
+                  >
+                    Modifier
+                  </button>
+                  <Form
+                    route="brands.destroy"
+                    :params="{ id: brand.id }"
                     method="delete"
                   >
                     <button type="submit" class="text-red-700 hover:underline"
