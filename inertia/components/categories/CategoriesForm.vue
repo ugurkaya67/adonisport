@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { Form } from '@adonisjs/inertia/vue'
+import { Data } from '@generated/data';
+
+defineProps<{
+  categories: Data.Category[]
+}>()
 </script>
 
 <template>
@@ -17,6 +22,7 @@ import { Form } from '@adonisjs/inertia/vue'
           type="text"
           name="name"
           id="name"
+          :value="categories?.name"
           class="col-span-2 rounded border bg-white px-3 py-2 text-black"
         />
       </div>

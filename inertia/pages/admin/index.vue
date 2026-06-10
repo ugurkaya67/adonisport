@@ -13,6 +13,7 @@ const showCategoryForm = ref(false)
 const showBrandForm = ref(false)
 const showProductForm = ref(false)
 const selectedProduct = ref(null)
+const selectedCategory = ref(null)
 
 const page = usePage<{
   products: Data.Product.Variants[]
@@ -46,7 +47,7 @@ const page = usePage<{
 
           <button
             class="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
-            @click="showCategoryForm = !showCategoryForm"
+            @click="selectedCategory = null; showCategoryForm = !showCategoryForm"
           >
             + Ajouter une catégorie
           </button>
@@ -69,7 +70,9 @@ const page = usePage<{
           Ajouter une catégorie
         </h2>
 
-        <CategoriesForm />
+        <CategoriesForm 
+        :categories="selectedCategory"
+        />
       </section>
 
       <!-- Formulaire marque -->
