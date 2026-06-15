@@ -19,11 +19,11 @@ export default class BrandsController {
     return response.redirect().toRoute('admin.index')
   }
 
-  async store({ request, response }: HttpContext) {
+  async store({ request, response, session }: HttpContext) {
     const data = request.only(['name', 'logoUrl'])
 
     await Brand.create(data)
-
+    session.flash('success', 'Marque créée avec succès')
     return response.redirect().toRoute('admin.index')
   }
 }
