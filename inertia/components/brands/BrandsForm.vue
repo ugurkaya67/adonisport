@@ -44,13 +44,11 @@ defineProps<{
         </div>
       </div>
 
-
-
       <button
         type="submit"
         class="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
       >
-        Ajouter Marque
+        {{ brand ? 'Modifier la marque' : 'Ajouter la marque' }}
       </button>
     </Form>
   </div>
