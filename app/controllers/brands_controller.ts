@@ -11,9 +11,10 @@ export default class BrandsController {
     })
   }
 
-  async destroy({ params, response }: HttpContext) {
+  async destroy({ params, response, session }: HttpContext) {
     const brand = await Brand.findOrFail(params.id)
     await brand.delete()
+    session.flash('success', 'Marque supprimée avec succès')
 
     return response.redirect().toRoute('admin.index')
   }
