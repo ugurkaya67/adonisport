@@ -3,15 +3,15 @@ import { Form } from '@adonisjs/inertia/vue'
 import { Data } from '@generated/data';
 
 defineProps<{
-  brand: Data.Brand.Variants['minify']
+  brand: Data.Brand.Variants['minify']| null
 }>()
 </script>
 
 <template>
   <div class="mt-4">
-    <Form
-      route="brands.store"
-      method="post"
+    <Form :route="brand ? 'brands.update' : 'brands.store'"
+      :params="brand ? { id: brand.id } : undefined"
+      :method="brand ? 'put' : 'post'"
       v-slot="{ errors }"
       class="space-y-4"
     >

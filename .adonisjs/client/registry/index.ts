@@ -84,6 +84,12 @@ const routes = {
     tokens: [{"old":"/brands/:id","type":0,"val":"brands","end":""},{"old":"/brands/:id","type":1,"val":"id","end":""}],
     types: placeholder as Registry['brands.destroy']['types'],
   },
+  'brands.update': {
+    methods: ["PUT"],
+    pattern: '/brands/:id',
+    tokens: [{"old":"/brands/:id","type":0,"val":"brands","end":""},{"old":"/brands/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['brands.update']['types'],
+  },
   'products.store': {
     methods: ["POST"],
     pattern: '/products',

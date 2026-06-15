@@ -36,6 +36,7 @@ router
     router.get('brands', [controllers.Brands, 'index']).as('brands.index')
     router.post('brands', [controllers.Brands, 'store']).as('brands.store')
     router.delete('brands/:id', [controllers.Brands, 'destroy']).as('brands.destroy')
+    router.put('brands/:id', [controllers.Brands, 'update']).as('brands.update')
 
     router.post('products', [controllers.Products, 'store']).as('products.store')
 

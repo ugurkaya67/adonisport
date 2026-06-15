@@ -19,6 +19,16 @@ export default class BrandsController {
     return response.redirect().toRoute('admin.index')
   }
 
+  async update({ params, request, response, session }: HttpContext) {
+    const brand = await Brand.findOrFail(params.id)
+    const data = request.only(['name', 'logoUrl'])
+
+    await brand.merge(data).save()
+    session.flash('success', 'Marque mise à jour avec succès')
+
+    return response.redirect().toRoute('admin.index')
+  }
+
   async store({ request, response, session }: HttpContext) {
     const data = request.only(['name', 'logoUrl'])
 
