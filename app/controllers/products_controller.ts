@@ -1,6 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Product from '#models/product'
 import ProductTransformer from '#transformers/product_transformer'
+import session from '#config/session'
 
 export default class ProductsController {
   async index({ inertia }: HttpContext) {
@@ -28,11 +29,11 @@ export default class ProductsController {
     return response.redirect().toRoute('admin.index')
   }
 
-  async destroy({ params, response }: HttpContext) {
+  async destroy({ params, response, session }: HttpContext) {
     const product = await Product.findOrFail(params.id)
 
     await product.delete()
-
+    session.flash('success', 'Produit supprimé avec succès')
     return response.redirect().toRoute('admin.index')
   }
 }
