@@ -20,11 +20,12 @@ export default class ProductsController {
     return response.redirect().toRoute('products.index')
   }
 
-  async update({ params, request, response }: HttpContext) {
+  async update({ params, request, response, session }: HttpContext) {
     const product = await Product.findOrFail(params.id)
     const data = request.only(['name', 'price', 'stock', 'image_url', 'brand_id', 'category_id'])
 
     await product.merge(data).save()
+    session.flash('success', 'Produit mis à jour avec succès')
 
     return response.redirect().toRoute('admin.index')
   }
