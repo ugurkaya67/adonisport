@@ -12,11 +12,11 @@ export default class ProductsController {
     })
   }
 
-  async store({ request, response }: HttpContext) {
+  async store({ request, response, session }: HttpContext) {
     const data = request.only(['name', 'price', 'stock', 'image_url', 'brand_id', 'category_id'])
 
     await Product.create(data)
-
+    session.flash('success', 'Produit créé avec succès')
     return response.redirect().toRoute('products.index')
   }
 
