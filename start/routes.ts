@@ -32,6 +32,7 @@ router
     router.get('categories', [controllers.Categories, 'index']).as('categories.index')
     router.post('categories', [controllers.Categories, 'store']).as('categories.store')
     router.delete('categories/:id', [controllers.Categories, 'destroy']).as('categories.destroy')
+    router.put('categories/:id', [controllers.Categories, 'update']).as('categories.update')
 
     router.get('brands', [controllers.Brands, 'index']).as('brands.index')
     router.post('brands', [controllers.Brands, 'store']).as('brands.store')
@@ -39,7 +40,6 @@ router
     router.put('brands/:id', [controllers.Brands, 'update']).as('brands.update')
 
     router.post('products', [controllers.Products, 'store']).as('products.store')
-
     router.put('products/:id', [controllers.Products, 'update']).as('products.update')
     router.delete('products/:id', [controllers.Products, 'destroy']).as('products.destroy')
   })

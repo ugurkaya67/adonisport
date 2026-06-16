@@ -48,7 +48,7 @@ const page = usePage<{
 
           <button
             class="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
-            @click="selectedCategory = null; showCategoryForm = !showCategoryForm"
+            @click="selectedCategory = null; showCategoryForm = true"
           >
             + Ajouter une catégorie
           </button>
