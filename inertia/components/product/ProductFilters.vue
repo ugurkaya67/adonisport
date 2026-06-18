@@ -1,4 +1,11 @@
 <script setup lang="ts">
+defineProps<{
+  search: string
+}>()
+
+defineEmits<{
+  'update:search': [value: string]
+}>()
 </script>
 
 <template>
@@ -14,9 +21,11 @@
         </label>
 
         <input
-          type="text"
-          placeholder="Nom du produit..."
-          class="w-full rounded-lg border bg-white px-3 py-2 text-sm text-black"
+        type="text"
+        placeholder="Nom du produit..."
+        :value="search"
+        @input="$emit('update:search', ($event.target as HTMLInputElement).value)"
+        class="w-full rounded-lg border bg-white px-3 py-2 text-sm text-black"
         />
       </div>
 

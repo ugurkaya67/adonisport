@@ -5,10 +5,19 @@ import ProductFilters from '../../components/product/ProductFilters.vue'
 
 import { Data } from '@generated/data';
 import { usePage } from '@inertiajs/vue3'
+import { computed, ref } from 'vue'
 
 const page = usePage<{
   products: Data.Product[]
 }>()
+
+const search = ref('')
+
+const filteredProducts = computed(() => {
+  return page.props.products.filter((product) =>
+    product.name.toLowerCase().includes(search.value.toLowerCase())
+  )
+})
 </script>
 
 <template>
@@ -24,11 +33,11 @@ const page = usePage<{
       <div class="flex flex-col gap-6 lg:flex-row">
 
         <!-- Sidebar filtres -->
-        <ProductFilters/>
+        <ProductFilters v-model:search="search" />
 
         <!-- Produits -->
         <section class="flex-1">
-          <ProductList :products="page.props.products" />
+          <ProductList :products="filteredProducts" />
         </section>
 
       </div>
