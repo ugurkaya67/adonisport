@@ -9,6 +9,8 @@ import { computed, ref } from 'vue'
 
 const page = usePage<{
   products: Data.Product[]
+  brands: Data.Brand[]
+  categories: Data.Category[]
 }>()
 
 const search = ref('')
@@ -33,7 +35,11 @@ const filteredProducts = computed(() => {
       <div class="flex flex-col gap-6 lg:flex-row">
 
         <!-- Sidebar filtres -->
-        <ProductFilters v-model:search="search" />
+        <ProductFilters 
+        v-model:search="search" 
+          :brands="page.props.brands"
+          :categories="page.props.categories"
+        />
 
         <!-- Produits -->
         <section class="flex-1">

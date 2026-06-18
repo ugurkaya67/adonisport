@@ -1,14 +1,18 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Product from '#models/product'
+import Brand from '#models/brand'
+import Category from '#models/category'
 import ProductTransformer from '#transformers/product_transformer'
-import session from '#config/session'
 
 export default class ProductsController {
   async index({ inertia }: HttpContext) {
     const products = await Product.all()
-
+    const categories = await Category.all()
+    const brands = await Brand.all()
     return inertia.render('auth/product', {
       products: ProductTransformer.transform(products),
+      categories: categories,
+      brands: brands,
     })
   }
 
