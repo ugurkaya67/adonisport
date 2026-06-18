@@ -7,10 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="mt-10">
-    <h2 class="mb-6 text-2xl font-bold">
-      Liste des produits
-    </h2>
+  <div>
 
     <div v-if="products.length === 0" class="text-gray-600">
       Aucun produit disponible.
