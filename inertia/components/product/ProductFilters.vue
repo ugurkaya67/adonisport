@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { Data } from '@generated/data';
+
 defineProps<{
   search: string
+  brands: Data.Brand[]
+  categories: Data.Category[]
 }>()
 
 defineEmits<{
@@ -35,20 +39,14 @@ defineEmits<{
         </h3>
 
         <div class="space-y-2 text-sm text-gray-700">
-          <label class="flex items-center gap-2">
+            <label
+            v-for="brand in brands"
+            :key="brand.id"
+            class="flex items-center gap-2"
+            >
             <input type="checkbox" />
-            Nike
-          </label>
-
-          <label class="flex items-center gap-2">
-            <input type="checkbox" />
-            Puma
-          </label>
-
-          <label class="flex items-center gap-2">
-            <input type="checkbox" />
-            Adidas
-          </label>
+            {{ brand.name }}
+            </label>
         </div>
       </div>
 
@@ -58,20 +56,14 @@ defineEmits<{
         </h3>
 
         <div class="space-y-2 text-sm text-gray-700">
-          <label class="flex items-center gap-2">
+            <label
+            v-for="category in categories"
+            :key="category.id"
+            class="flex items-center gap-2"
+            >
             <input type="checkbox" />
-            Baskets
-          </label>
-
-          <label class="flex items-center gap-2">
-            <input type="checkbox" />
-            Running
-          </label>
-
-          <label class="flex items-center gap-2">
-            <input type="checkbox" />
-            Football
-          </label>
+            {{ category.name }}
+            </label>
         </div>
       </div>
 
