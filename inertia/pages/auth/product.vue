@@ -14,10 +14,16 @@ const page = usePage<{
 }>()
 
 const search = ref('')
+const selectedBrandIds = ref<number[]>([])
+console.log('test', selectedBrandIds.value)
 
 const filteredProducts = computed(() => {
   return page.props.products.filter((product) =>
-    product.name.toLowerCase().includes(search.value.toLowerCase())
+    product.name.toLowerCase().includes(search.value.toLowerCase()) &&
+    (
+      selectedBrandIds.value.length === 0 ||
+      (product.brandId !== null && selectedBrandIds.value.includes(product.brandId))
+    )
   )
 })
 </script>
@@ -39,6 +45,7 @@ const filteredProducts = computed(() => {
         v-model:search="search" 
           :brands="page.props.brands"
           :categories="page.props.categories"
+        v-model:selectedBrandIds="selectedBrandIds"
         />
 
         <!-- Produits -->

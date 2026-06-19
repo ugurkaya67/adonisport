@@ -5,10 +5,12 @@ defineProps<{
   search: string
   brands: Data.Brand[]
   categories: Data.Category[]
+  selectedBrandIds: number[]
 }>()
 
 defineEmits<{
   'update:search': [value: string]
+  'update:selectedBrandIds': [value: number[]]
 }>()
 </script>
 
@@ -44,7 +46,19 @@ defineEmits<{
             :key="brand.id"
             class="flex items-center gap-2"
             >
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              :value="brand.id"
+              :checked="selectedBrandIds.includes(brand.id)"
+              @change="
+                $emit(
+                  'update:selectedBrandIds',
+                  ($event.target as HTMLInputElement).checked
+                    ? [...selectedBrandIds, brand.id]
+                    : selectedBrandIds.filter((id) => id !== brand.id)
+                )
+              "
+            />
             {{ brand.name }}
             </label>
         </div>

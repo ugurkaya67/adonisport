@@ -9,6 +9,8 @@ export default class ProductTransformer extends BaseTransformer<Product> {
       'price',
       'stock',
       'imageUrl',
+      'brandId',
+      'categoryId',
       'createdAt',
       'updatedAt',
     ])
